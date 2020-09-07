@@ -1,0 +1,91 @@
+
+.navbar{
+    background-image: linear-gradient(#1B3E5C, #3C75A6);
+}
+#vitlogo{
+    max-width: 180px;
+    max-height: 75px;
+}
+#AVIT{
+    font-weight: bold;
+    font-size: 27px;
+}
+#about_img{
+    max-width: 510px; 
+    max-height: 300px;
+}
+.heading{
+    color: #2E6DA4; 
+    font-size: 40px; 
+    font-weight: 600;
+}
+.emp_box{
+    border: 3px solid #2E6DA4;
+    font-weight: bold;
+    font-size: x-large;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.emp_box2{
+    border: 3px solid #2E6DA4;
+    border-top-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;    
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+.emp_box3{
+    border: 3px solid #5DA1DB;
+    font-weight: bold;
+    font-size: x-large;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.emp_box4{
+    border: 3px solid #5DA1DB;
+    border-top-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;   
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.2); 
+}
+.btn{
+    background-color: #2E6DA4;
+    color: white;
+    font-weight: bolder;
+    padding:3px 25px;
+    border-radius: 10px;
+    border:none;
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+.btn2{
+    border:none;
+    background-color: #5DA1DB;
+    color: white;
+    font-weight: bolder;
+    padding:3px 25px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+#sticky-footer {
+    flex-shrink: none;
+       background-image: linear-gradient(#3C75A6, #1B3E5C);
+  }
+@media screen and (max-width: 450px) {
+    #vitlogo{
+        max-width: 100px;
+        max-height: 30px;
+    }
+    #AVIT{
+        font-weight: bold;
+        font-size: 17px;
+    }
+    #about_img{
+        display: none;
+    }
+    .heading{
+        font-size: 30px;
+        font-weight: 500;
+    }
+    #right_content{
+        margin-left: 30px;
+    }
+  }
