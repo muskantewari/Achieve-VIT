@@ -70,6 +70,9 @@
        background-image: linear-gradient(#3C75A6, #1B3E5C);
   }
 @media screen and (max-width: 450px) {
+    .emp_box3{
+        margin-top: 30px;
+    }
     #vitlogo{
         max-width: 100px;
         max-height: 30px;
