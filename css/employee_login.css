@@ -1,0 +1,12 @@
+.navbar{
+    background-image: linear-gradient(#1B3E5C, #3C75A6);
+}
+#vitlogo{
+    max-width: 180px;
+    max-height: 75px;
+}
+#AVIT{
+    font-weight: bold;
+    font-size: 27px;
+    color: white;
+}
