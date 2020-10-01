@@ -9,7 +9,7 @@ Home page Employee: https://muskantewari.github.io/Achieve-VIT/homepage_emp.html
 Login Employee: https://muskantewari.github.io/Achieve-VIT/login_employee.html
 
 
-Home page: https://muskantewari.github.io/Achieve-VIT/index
+Login HR: https://muskantewari.github.io/Achieve-VIT/login_hr.html
 
 
-Home page: https://muskantewari.github.io/Achieve-VIT/index
+My Profile Employee: https://muskantewari.github.io/Achieve-VIT/myprofile.html
