@@ -40,7 +40,18 @@ body{
   margin-bottom: 80px;
   
 }
-
+.send_password_resetlink{
+    color: white;
+    background-color: #2E6DA4 ;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    align-items: center;
+}
+.foot_mod{
+    display: flex;
+    justify-content:center;
+}
 .form-signin {
   max-width: 380px;
   padding: 35px 35px 45px 45px;
