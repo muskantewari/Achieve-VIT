@@ -1,0 +1,159 @@
+body{
+    margin: 0;
+    overflow: auto;
+}
+.navbar{
+    background-image: linear-gradient(#1B3E5C, #3C75A6);
+}
+#vitlogo{
+    max-width: 180px;
+    max-height: 75px;
+}
+#AVIT{
+    font-weight: bold;
+    font-size: 27px;
+}
+
+#heading{
+    color: #2E6DA4; 
+    font-size: 40px; 
+    font-weight: 600;
+}
+#emp_img{
+    height: 400px;
+    width: 500px;
+}
+.container{
+    margin-bottom: -19px;
+}
+#heading_signin{
+    color: #2E6DA4; 
+    font-size: 40px; 
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+.wrapper {	
+	margin-top: 40px;
+  margin-bottom: 80px;
+  
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 35px 35px 45px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 4px solid rgb(77, 145, 204);  
+  border-radius: 25px;
+}
+.form-signin-heading,
+	.checkbox {
+	  margin-bottom: 30px;
+	}
+
+	.checkbox {
+	  font-weight: normal;
+	}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+	input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      margin-bottom: 10px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: solid 1px black;
+
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: solid 1px black;
+	}
+
+#signup_button{
+    display: block;
+    border-radius: 20px;
+    background: #4D91CC;
+    color: white;
+    width: 130px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#signup_button p{
+    margin:0;
+    padding: 0;
+    position: relative;
+    top:-6px;
+}
+#firstlogin_forgot{
+    position: relative;
+    padding-top: 8px;
+    top: 6px;
+    display: flex;
+}
+#buttons_forgot_first_signin1{
+
+background-color: white;
+color:#4D91CC;
+border:1px solid #4D91CC;
+border-radius: 25px;
+margin-bottom: 9.9px;
+float:right;
+margin-left: 0;
+
+}
+#lolo{
+    padding-bottom: 4px;
+}
+#buttons_forgot_first_signin1:hover{
+
+    background-color:#4D91CC ;
+    color:white;
+    
+}
+#buttons_forgot_first_signin2{
+
+    background-color: white;
+    color:#4D91CC;
+    border:1px solid #4D91CC;
+    border-radius: 25px;
+    float:right;
+    margin-left: 0;h
+    
+    }
+    #buttons_forgot_first_signin2:hover{
+
+        background-color:#4D91CC ;
+        color:white;
+    }
+
+    .hulu{
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    #sticky-footer {
+        flex-shrink: none;
+        background-image: linear-gradient(#3C75A6, #1B3E5C);
+      }
