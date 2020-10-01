@@ -33,12 +33,23 @@ body{
     display: flex;
     justify-content: center;
 }
+.foot_mod{
+    display: flex;
+    justify-content:center;
+}
 .wrapper {	
 	margin-top: 40px;
   margin-bottom: 80px;
   
 }
-
+.send_password_resetlink{
+    color: white;
+    background-color: #2E6DA4 ;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    align-items: center;
+}
 .form-signin {
   max-width: 380px;
   padding: 35px 35px 45px 45px;
@@ -139,7 +150,7 @@ margin-left: 0;
     border:1px solid #4D91CC;
     border-radius: 25px;
     float:right;
-    margin-left: 0;h
+    margin-left: 0;
     
     }
     #buttons_forgot_first_signin2:hover{
@@ -157,3 +168,4 @@ margin-left: 0;
         flex-shrink: none;
         background-image: linear-gradient(#3C75A6, #1B3E5C);
       }
+
