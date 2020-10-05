@@ -31,13 +31,13 @@
           <div class="col-12 col-md-6">
             <h2 id="heading_signin">Employee Sign In</h2>
             <div class="wrapper">
-                <form class="form-signin">       
-                  <input type="text" class="form-control" name="username" placeholder="Employee ID" required="" autofocus="" />
-                  <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+                <div class="form-signin" >       
+                  <input type="text" class="form-control" id = "username" name="username" placeholder="Employee ID" required="" autofocus="" />
+                  <input type="password" class="form-control" name="password" id = "password" placeholder="Password" required=""/>      
                   <label class="checkbox">
                     <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
                   </label>
-                  <button id="signup_button" class="btn btn-lg btn-block" type="submit"><p>Sign in</p></button> 
+                  <button id="signup_button" class="btn btn-lg btn-block" type="submit" onClick = "login()"><p>Sign in</p></button> 
                   <div id="firstlogin_forgot">
                   <div class="hulu">
                     <label id="lolo">Signing in for the first time?</label> 
@@ -48,7 +48,7 @@
                         <button id="buttons_forgot_first_signin1" data-toggle="modal" data-target="#get-password"> Get Password </button>
                         <button id="buttons_forgot_first_signin2" data-toggle="modal" data-target="#send-reset-link">Reset Password</button></div>
                 </div>
-                </form>
+                </div>
               </div>
           </div>
           
@@ -121,5 +121,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+<script src="js/faculty_login.js"></script>
+
 </body>
 </html>
