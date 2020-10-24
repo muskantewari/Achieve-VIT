@@ -17,8 +17,8 @@ function addAchievements()
         if(this.status==201)
         {
             var node = document.createElement('div')
-            node.setAttribute("class", "col-md-6 ml-5")
-            node.innerHTML = JSON.parse(this.responseText).details;
+            // node.setAttribute("class", "col-md-6 ml-5")
+            node.innerHTML = "&nbsp" + JSON.parse(this.responseText).details;
             divReqd = document.getElementById("achievement").appendChild(node);
         }
         else if(this.status==401){
