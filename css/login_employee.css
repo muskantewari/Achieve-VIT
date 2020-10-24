@@ -71,7 +71,7 @@ body{
 	  position: relative;
 	  font-size: 16px;
 	  height: auto;
-	  padding: 10px;
+	  padding: 10px;}
 		@include box-sizing(border-box);
 
 		&:focus {

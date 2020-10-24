@@ -39,7 +39,9 @@
 .dropdown {
     float: left;
   }
-  
+  .form-control{
+    border: 1px solid #2E6DA4 !important;
+  }
   .dropdown .dropbtn {
     font-size: 16px;  
     border: none;
@@ -50,7 +52,30 @@
     font-family: inherit;
     margin: 0;
   }
-
+  .save_changes{
+  color: white;
+  background-color: #2E6DA4 ;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none;
+  align-items: center;
+  }
+  .YES{
+    color: white;
+    background-color: red ;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    align-items: center;
+    }
+  .NO{
+    color: white;
+    background-color: green ;
+    border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    align-items: center;
+    }
   .dropdown-content {
     display: none;
     position: absolute;
