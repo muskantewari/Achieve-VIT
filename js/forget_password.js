@@ -102,6 +102,7 @@ xhr.onload = function () {
   if(this.status==200)
   {
     window.location.replace('homepage_emp.html')
+    alert("Your password is changed successfully")
 
   }
   else{
