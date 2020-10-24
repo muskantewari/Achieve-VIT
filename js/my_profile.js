@@ -18,7 +18,7 @@ function addAchievements()
         {
             var node = document.createElement('div')
             node.setAttribute("class", "col-md-6 ml-5")
-            // node.innerHTML("new Achievement");
+            node.innerHTML = JSON.parse(this.responseText).details;
             divReqd = document.getElementById("achievement").appendChild(node);
         }
         else if(this.status==401){
@@ -27,5 +27,5 @@ function addAchievements()
         else{
             alert("Could not save")
         }
-}
+    }
 }
