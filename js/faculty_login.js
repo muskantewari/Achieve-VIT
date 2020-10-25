@@ -27,6 +27,7 @@ function login(){
         else{
             alert('Invalid login credentials')
             window.location.replace('login_employee.html')
+            
         }
     }
 }

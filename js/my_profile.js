@@ -1,7 +1,15 @@
 function allGETRequests(){
-    myDetails()
-    getEducation()
-    getAchievements()
+
+    if (localStorage.hasOwnProperty("Token")){
+        myDetails()
+        getEducation()
+        getAchievements()
+    }
+    else{
+        alert("You need to login first")
+        window.location.replace('index.html')
+    }
+   
 }
 
 function getAchievements(){
@@ -162,4 +170,9 @@ function addAchievements()
             alert("Could not save")
         }
     }
+}
+
+function logout(){
+    localStorage.removeItem("Token");
+    window.location.replace('index.html')
 }
