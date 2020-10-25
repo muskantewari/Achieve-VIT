@@ -11,6 +11,7 @@ function allGETRequests(){
         myDetails()
         getEducation()
         getAchievements()
+        getExperience()
     }
     else{
         alert("You need to login first")
@@ -29,6 +30,7 @@ function getAchievements(){
     xh.send();
 
     xh.onload = function(){
+        console.log(this.responseText)
         if(this.status==200 && (this.responseText).length>5)
         {
             
@@ -104,6 +106,38 @@ function getExperience(){
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
+
+    xh.onload = function(){
+        console.log(this.responseText)
+        console.log(this.status)
+        if(this.status==200 && (this.responseText).length>5){
+            var resp = eval('(' + this.responseText + ')');
+
+            for (let data in resp)
+            {
+                var uuid = resp[data]["uuid"]
+                var position = resp[data]["position"]
+                var comp_name = resp[data]["comp_name"]
+                var description = resp[data]["description"]
+                var period = resp[data]["period"]
+
+                var node = `<div class="row mt-3" id = "${uuid}">
+                                <div class="col-md-8">
+                                    &nbsp;${position}<br>
+                                    &nbsp;${comp_name}<br>
+                                    &nbsp;${description}<br>
+                                    &nbsp;${period}
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
+                                </div>
+                            </div>`
+
+                $('#experience').append(node);
+            }
+
+        }
+    }
 }
 
 function myDetails(){
@@ -150,7 +184,6 @@ function addAchievements()
     xh.send(JSON.stringify(data));
 
     xh.onload=function(){
-        console.log(this.responseText)
         if(this.status==201)
         {
 
