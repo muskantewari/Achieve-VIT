@@ -30,7 +30,6 @@ function getAchievements(){
     xh.send();
 
     xh.onload = function(){
-        console.log(this.responseText)
         if(this.status==200 && (this.responseText).length>5)
         {
             
@@ -88,7 +87,6 @@ function getEducation(){
                     <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
                 </div>
                 </div>`
-                console.log(node)
                 $('#education').append(node);
             }
 
@@ -108,8 +106,6 @@ function getExperience(){
     xh.send();
 
     xh.onload = function(){
-        console.log(this.responseText)
-        console.log(this.status)
         if(this.status==200 && (this.responseText).length>5){
             var resp = eval('(' + this.responseText + ')');
 
@@ -213,11 +209,10 @@ function addExperience(){
             "description" : document.getElementById('description').value,
             "period" : document.getElementById('period').value,
     }
-    console.log(data);
     var jwt = localStorage.getItem('Token')
 
     var xh = new XMLHttpRequest();
-    xh.open("POST", "https://achieve-vit.herokuapp.com/portfolio/achievements/", true)
+    xh.open("POST", "https://achieve-vit.herokuapp.com/portfolio/experience/", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt);
     xh.send(JSON.stringify(data));   
@@ -250,6 +245,51 @@ function addExperience(){
     }
 }
 
+function addEducation(){
+    
+    var data = {
+        "university" : document.getElementById('university').value,
+        "degree" : document.getElementById('degree').value,
+        "start_year" : document.getElementById('start_year').value,
+        "end_year" : document.getElementById('end_year').value
+    }
+
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://achieve-vit.herokuapp.com/portfolio/education/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send(JSON.stringify(data)); 
+
+    xh.onload=function(){
+        console.log(this.status)
+        console.log(this.responseText)
+        if(this.status==201)
+        {
+            var node = `<div class="row mt-3" id = "${JSON.parse(this.responseText).uuid}">
+                <div class="col-md-8">
+                    &nbsp;${JSON.parse(this.responseText).university}<br>
+                    &nbsp;${JSON.parse(this.responseText).degree}<br>
+                    &nbsp;${JSON.parse(this.responseText).start_year} to ${JSON.parse(this.responseText).end_year}
+                </div>
+                <div class="col-md-4">
+                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
+                </div>
+                </div>`
+
+            $('#education').append(node);
+
+            $("#add-education").modal("hide");
+        }
+        else if(this.status==401){
+            alert('Please authenticate user')
+        }
+        else{
+            alert("Could not save")
+        }
+    }
+}
 function logout(){
     localStorage.removeItem("Token");
     window.location.replace('index.html')

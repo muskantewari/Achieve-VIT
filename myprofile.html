@@ -136,24 +136,23 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <div>
             <div class="form-group">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Degree name">
-              <input type="email" class="mt-3 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Institute name">
-              <input type="email" class="mt-3 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Field name">
+              <input type="text" class="form-control" id="university" aria-describedby="emailHelp" placeholder="Name of the University">
+              <input type="text" class="mt-3 form-control" id="degree" aria-describedby="emailHelp" placeholder="Degree">
               <div class="row">
                   <div class="col-6">
-                    <input type="email" class="mt-3 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Start date">
+                    <input type="date" class="mt-3 form-control" id="start_year" aria-describedby="emailHelp" placeholder="Start-date">
                   </div>
                   <div class="col-6">
-                    <input type="email" class="mt-3 form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="End date">
+                    <input type="date" class="mt-3 form-control" id="end_year" aria-describedby="emailHelp" placeholder="End-date">
                   </div>
               </div>
             </div>
-          </form>        
+          </div>        
         </div>
         <div class="modal-footer foot_mod">
-          <button type="button" class="save_changes">SAVE CHANGES</button>
+          <button type="button" class="save_changes" onclick="addEducation()">SAVE CHANGES</button>
         </div>
       </div>
     </div>
