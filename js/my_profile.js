@@ -109,7 +109,7 @@ function myDetails(){
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
 
-    xh.onload = function(){
+    xh.onload = () => {
         if(this.status==200 && (this.responseText).length>2)
         {
             var resp = eval('(' + this.responseText + ')');
@@ -176,3 +176,5 @@ function logout(){
     localStorage.removeItem("Token");
     window.location.replace('index.html')
 }
+
+
