@@ -97,7 +97,13 @@ function getEducation(){
 }
 
 function getExperience(){
+    var jwt = localStorage.getItem('Token')
 
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/experience/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send();
 }
 
 function myDetails(){
