@@ -1,21 +1,3 @@
-// function forget_password(){
-//   var email= document.getElementById('email_forgot_password').value
-//   var data = JSON.stringify({"email":email});
-//   var xhr = new XMLHttpRequest();
-//   xhr.withCredentials = true;
-
-//   xhr.addEventListener("readystatechange", function() {
-//     if(this.readyState === 4) {
-//       console.log(this.responseText);
-//     }
-//   });
-
-//   xhr.open("POST", "https://achieve-vit.herokuapp.com/accounts/verifyOTP");
-//   xhr.setRequestHeader("Content-Type", "application/json");
-
-//   xhr.send(data);
-//}
-
 
 function forget_password(){
     console.log("Hi");
@@ -31,10 +13,9 @@ function forget_password(){
       console.log(this.responseText);
     }
   });
-  console.log("Hi2");
 
   xhr.open("POST", "https://achieve-vit.herokuapp.com/accounts/verifyOTP");
-  console.log("Hi3");
+  
 
   xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -46,13 +27,11 @@ function forget_password(){
     
     xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 		// res.setHeader("Content-Type", "application/json;charset=utf-8"); // Opening this comment will cause problems
-  console.log("Hi4");
+  
 
-  xhr.send(JSON.stringify(data));
-  console.log("Hi5");
+  xhr.send(JSON.stringify(data))
 
   xhr.onload = function () {
-      console.log("HIii")
       console.log(this.responseText)
       console.log(this.status)
       // debugger;
@@ -60,8 +39,10 @@ function forget_password(){
       {
           alert("Re-enter your email")
       }
+      else{
+        
+      }
   }
-  console.log("Hi6");
 
 }
 //var data = JSON.stringify({"email":"shreyachatterjeeshreyash@gmail.com"});
@@ -95,7 +76,6 @@ xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Heade
 xhr.send(JSON.stringify(data));
 
 xhr.onload = function () {
-  console.log("HIii")
   console.log(this.responseText)
   console.log(this.status)
   // debugger;

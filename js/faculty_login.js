@@ -12,7 +12,6 @@ function login(){
     xh.send(JSON.stringify(data));
     // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
     xh.onload = function () {
-        console.log("HIii")
         console.log(this.responseText)
         console.log(this.status)
         // debugger;
