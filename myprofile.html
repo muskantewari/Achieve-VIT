@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden;" onload = "allGETRequests()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><img src="img/vitlogo.png" id="vitlogo" alt=""></a>
         <a id="AVIT">AchieveVIT</a>
@@ -51,25 +51,19 @@
             </div>
         </div>
         <div class="col-12 col-md-2"></div>
-        <div class="col-12 col-md-5 right-box" style="margin-top: 55px;">
-            <div class="header" style="border-bottom: 3px solid #337AB7;">
-                <div class="playerTwo" style="font-size: x-large; font-weight: bolder ;" >
-                    &nbsp;EDUCATION
-                </div>
-                <div class="playerOne" >
-                    <button style="color: #337AB7; font-size: x-large; border: none; background-color: white;" data-toggle="modal" data-target="#add-education">+</button>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-8">
-                    &nbsp;Vellore Institute Of Technology<br>
-                    &nbsp;B Tech, Information Technology<br>
-                    &nbsp;2018-2020
-                </div>
-                <div class="col-md-4">
-                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
-                </div>
-            </div>
+        <div class="col-12 col-md-5 right-box" style="margin-top: 55px;" >
+              <div class="header" style="border-bottom: 3px solid #337AB7;" >
+                  <div class="playerTwo" style="font-size: x-large; font-weight: bolder ;" >
+                      &nbsp;EDUCATION
+                  </div>
+                  <div class="playerOne" >
+                      <button style="color: #337AB7; font-size: x-large; border: none; background-color: white;" data-toggle="modal" data-target="#add-education">+</button>
+                  </div>
+              </div>
+
+              <div id = "education">
+              </div>
+            
             <div class="header mt-5" style="border-bottom: 3px solid #337AB7;">
                 <div class="playerTwo" style="font-size: x-large; font-weight: bolder ;">
                     &nbsp;WORK EXPERIENCE
@@ -139,7 +133,7 @@
                 <div class="col-12 col-md-2"></div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6" id = "achievement">
             <div class="header mt-5 ml-5" style="border-bottom: 3px solid #337AB7; width:80%">
                 <div class="playerTwo" style="font-size: x-large; font-weight: bolder ;">
                     &nbsp;ACHIEVEMENT
@@ -148,15 +142,8 @@
                     <button style="color: #337AB7; font-size: x-large; border: none; background-color: white;" data-toggle="modal" data-target="#add-achievement">+</button>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class = "col-md-6 ml-5" id = "achievement">
-
-                </div>
-                <div class="col-md-4">
-                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
-                </div>
-                <div class="col-md-2"></div>
-            </div>
+            
+            
         </div>
         <div class="col-12 col-md-1"></div>
     </div>
