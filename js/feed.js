@@ -9,6 +9,7 @@ function initRequests(){
 
         $('#dropdown').append(initNode);
         myDetails()
+        myFeed()
     }
     else{
         alert("You need to login first")
@@ -50,5 +51,74 @@ function myDetails(){
             }
 
         }
+    }
+}
+
+function myFeed(){
+    var jwt = localStorage.getItem('Token')
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://achieve-vit.herokuapp.com/feed/view/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send();
+
+    xh.onload = function(){
+        if (this.status == 200){
+            var feed = JSON.parse(this.responseText)
+            for (let data in feed.feed)
+            {
+                var post = feed.feed[data]
+                var uuid = post["uuid"]
+                var name = post["Name"]
+                var title = post["Title"]
+                var likes = post["Likes"]
+                var content = ""
+                if (title == " added a Skill")
+                {
+                    content = post["Skill"]
+                }
+
+                else if (title == " updated their Education.")
+                {
+                    content = "Completed " + post["Degree"] + " from " + post["University"]
+                    content += "<br>" + post["From"] + " to " + post["To"]
+
+                }
+
+                else if (title == " updated their Work Experience"){
+                    content = "Worked as " + post["Position"] + " at " + post["Company"] + " as "
+                    content += post["Work description"] + " for " + post["period"]
+                }
+
+                else if (title == " added an Achievement"){
+                    content = post["Details"]
+                }
+
+
+                var node = `<div class="container mt-5" id = "${uuid}">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="img/Ellipse 5.png" width="40px">
+                                    </div>
+                                    <div class="col-11 mt-2">
+                                        <span style="font-size: larger;"><span style="font-weight: bolder;">${name}</span></span><i> &nbsp; &nbsp; ${title}</i>
+                                    </div>
+                                </div>
+                                <div class="row announce mt-3">
+                                    ${content}
+                                    <button class="ml-auto mt-1 like" id = "${uuid}">
+                                        LIKE ${likes}
+                                    </button>
+                                </div>
+                            </div>`
+
+                $('#feed').append(node);
+            }
+        }
+
+        else{
+            console.log("Error loading Feed")
+        }
+        
     }
 }
