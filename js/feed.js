@@ -139,13 +139,11 @@ function addLike(uuid){
 
     xh.onload = function(){
         if (this.status == 202){
-            // var btn = document.getElementById(uuid);
-            // console.log(btn)
-            // var btnVal = btn.value;
-            // btn.innerHTML = btnVal + 1;
-            // alert(btnVal)
-
-            window.location.reload()
+            var btn = document.getElementById(uuid);
+            var btnChild = btn.childNodes;
+            var btnVal = (btnChild[1].innerHTML)
+            btnVal = parseInt(btnVal) + 1
+            btnChild[1].innerHTML = btnVal;
         }
     }
 }
