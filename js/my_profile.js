@@ -206,6 +206,50 @@ function addAchievements()
     }
 }
 
+function addExperience(){
+    var data = {
+            "position" : document.getElementById('position').value,
+            "comp_name" : document.getElementById('comp_name').value ,
+            "description" : document.getElementById('description').value,
+            "period" : document.getElementById('period').value,
+    }
+    console.log(data);
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://achieve-vit.herokuapp.com/portfolio/achievements/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send(JSON.stringify(data));   
+
+    xh.onload=function(){
+        if(this.status==201)
+        {
+            var node = `<div class="row mt-3" id = "${JSON.parse(this.responseText).uuid}">
+            <div class="col-md-8">
+                &nbsp;${JSON.parse(this.responseText).position}<br>
+                &nbsp;${JSON.parse(this.responseText).comp_name}<br>
+                &nbsp;${JSON.parse(this.responseText).description}<br>
+                &nbsp;${JSON.parse(this.responseText).period}
+            </div>
+            <div class="col-md-4">
+                <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
+            </div>
+        </div>`
+
+        $('#experience').append(node);
+
+        $("#add-experience").modal("hide");
+        }
+        else if(this.status==401){
+            alert('Please authenticate user')
+        }
+        else{
+            alert("Could not save")
+        }
+    }
+}
+
 function logout(){
     localStorage.removeItem("Token");
     window.location.replace('index.html')
