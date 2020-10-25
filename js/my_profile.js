@@ -1,6 +1,13 @@
 function allGETRequests(){
 
     if (localStorage.hasOwnProperty("Token")){
+        var empid = localStorage.getItem('EmpID')
+        var acType = localStorage.getItem("ACtype")
+        var initNode = `<button class="dropbtn" id="AVIT">${empid} (${acType})
+        <i class="fa fa-caret-down"></i>
+        </button>`
+
+        $('#dropdown').append(initNode);
         myDetails()
         getEducation()
         getAchievements()
@@ -24,13 +31,6 @@ function getAchievements(){
     xh.onload = function(){
         if(this.status==200 && (this.responseText).length>5)
         {
-            var empid = localStorage.getItem('EmpID')
-            var acType = localStorage.getItem("ACtype")
-            var initNode = `<button class="dropbtn" id="AVIT">${empid} (${acType})
-            <i class="fa fa-caret-down"></i>
-            </button>`
-
-            $('#dropdown').append(initNode);
             
             var resp = eval('(' + this.responseText + ')');
 
@@ -127,14 +127,12 @@ function myDetails(){
                 <span style="font-weight: bolder;">${name}</span><br>
                 ${post}<br> 
                 Vellore Institute Of Technology
-            </div>`
+                </div>`
                 
                 $('#personal').append(node);
             }
 
         }
-
-
     }
 }
 
