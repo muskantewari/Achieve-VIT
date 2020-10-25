@@ -5,6 +5,22 @@
     max-width: 180px;
     max-height: 75px;
 }
+.navbar-nav.navbar-center { 
+  position: absolute; 
+  left: 50%; 
+  transform: translatex(-50%); 
+}
+
+.sea{
+  border:1px solid white !important;
+  color: white !important;
+}
+.sea :hover{
+border:2px solid white !important;
+color: white !important;
+font-weight: bolder !important;
+}
+
 #AVIT{
     font-weight: bold;
     font-size: 20px;
@@ -17,11 +33,23 @@
     left:-55px;
 
 }
+
+.header > div{
+  display: inline-block;
+}
+.playerOne{
+  float:right;
+}
+
+.form-control{
+  border: 1px solid #2E6DA4 !important;
+}
+
 .dropdown {
     float: left;
   }
   
-  .dropdown .dropbtn {
+.dropdown .dropbtn {
     font-size: 16px;  
     border: none;
     outline: none;
