@@ -108,14 +108,12 @@ function getExperience(){
 
 function myDetails(){
     var jwt = localStorage.getItem('Token')
-
     var xh = new XMLHttpRequest();
     xh.open("GET", "https://achieve-vit.herokuapp.com/profile/faculty/", true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
-
-    xh.onload = () => {
+    xh.onload = function() {
         if(this.status==200 && (this.responseText).length>2)
         {
             var resp = eval('(' + this.responseText + ')');
@@ -130,7 +128,7 @@ function myDetails(){
                 ${post}<br> 
                 Vellore Institute Of Technology
             </div>`
-                console.log(node)
+                
                 $('#personal').append(node);
             }
 
