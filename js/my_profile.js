@@ -1,4 +1,5 @@
 function allGETRequests(){
+    myDetails()
     getEducation()
     getAchievements()
 }
@@ -15,6 +16,13 @@ function getAchievements(){
     xh.onload = function(){
         if(this.status==200 && (this.responseText).length>5)
         {
+            var empid = localStorage.getItem('EmpID')
+            var acType = localStorage.getItem("ACtype")
+            var initNode = `<button class="dropbtn" id="AVIT">${empid} (${acType})
+            <i class="fa fa-caret-down"></i>
+            </button>`
+
+            $('#dropdown').append(initNode);
             
             var resp = eval('(' + this.responseText + ')');
 
@@ -39,7 +47,6 @@ function getAchievements(){
 }
 
 function getEducation(){
-    console.log("Hii")
     var jwt = localStorage.getItem('Token')
 
     var xh = new XMLHttpRequest();
@@ -81,6 +88,43 @@ function getEducation(){
 
 }
 
+function getExperience(){
+
+}
+
+function myDetails(){
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://achieve-vit.herokuapp.com/profile/faculty/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send();
+
+    xh.onload = function(){
+        if(this.status==200 && (this.responseText).length>2)
+        {
+            var resp = eval('(' + this.responseText + ')');
+
+            for (let data in resp)
+            {
+                var name = resp[data]["name"]
+                var post = resp[data]["post"]
+
+                var node = `<div class="mt-2 mb-1">
+                <span style="font-weight: bolder;">${name}</span><br>
+                ${post}<br> 
+                Vellore Institute Of Technology
+            </div>`
+                console.log(node)
+                $('#personal').append(node);
+            }
+
+        }
+
+
+    }
+}
 
 function addAchievements()
 {

@@ -18,8 +18,10 @@ function login(){
         // debugger;
         if(this.status==200)
         {
-            var data = JSON.parse(this.responseText)
-            localStorage.setItem("Token", "Token " + data.token)
+            var respData = JSON.parse(this.responseText)
+            localStorage.setItem("Token", "Token " + respData.token)
+            localStorage.setItem("ACtype", respData.ac_type)
+            localStorage.setItem("EmpID", data.empid)
             window.location.replace('homepage_emp.html')
         }
         else{
