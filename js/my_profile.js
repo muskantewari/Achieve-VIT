@@ -20,6 +20,8 @@ function addAchievements()
             // node.setAttribute("class", "col-md-6 ml-5")
             node.innerHTML = "&nbsp" + JSON.parse(this.responseText).details;
             divReqd = document.getElementById("achievement").appendChild(node);
+            $("#add-achievement").modal("hide");
+            // document.getElementById("add-achievement").style.visibility = "hidden";
         }
         else if(this.status==401){
             alert('Please authenticate user')
