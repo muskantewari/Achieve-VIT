@@ -95,7 +95,7 @@ function myFeed(){
                 }
 
 
-                var node = `<div class="container mt-5" id = "${uuid}">
+                var node = `<div class="container mt-5">
                                 <div class="row">
                                     <div class="col-1">
                                         <img src="img/Ellipse 5.png" width="40px">
@@ -106,8 +106,8 @@ function myFeed(){
                                 </div>
                                 <div class="row announce mt-3">
                                     ${content}
-                                    <button class="ml-auto mt-1 like" id = "${uuid}">
-                                        LIKE ${likes}
+                                    <button class="ml-auto mt-1 like" id = "${uuid}" onClick = "addLike(this.id)">
+                                        LIKE <span style="font-weight: bolder;">${likes}</span>
                                     </button>
                                 </div>
                             </div>`
@@ -122,3 +122,31 @@ function myFeed(){
         
     }
 }
+
+function addLike(uuid){
+
+    var data = {
+        "uuid" : uuid
+    }
+
+    console.log(data)
+    var jwt = localStorage.getItem('Token')
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://achieve-vit.herokuapp.com/feed/like", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send(JSON.stringify(data));
+
+    xh.onload = function(){
+        if (this.status == 202){
+            // var btn = document.getElementById(uuid);
+            // console.log(btn)
+            // var btnVal = btn.value;
+            // btn.innerHTML = btnVal + 1;
+            // alert(btnVal)
+
+            window.location.reload()
+        }
+    }
+}
+
