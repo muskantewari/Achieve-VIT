@@ -45,7 +45,7 @@ function getAchievements(){
 
                         <div class = "col-md-6 ml-5">${details}</div>
 
-                        <div class="col-md-4"><input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">hello</div>
+                        <div class="col-md-4"><input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row"></div>
                     </div>`
 
                 $('#achievement').append(node);
@@ -189,7 +189,6 @@ function addAchievements()
 
             var node = `<div class="row mt-3" id = "${JSON.parse(this.responseText).uuid}">
                             <div class = "col-md-6 ml-5">&nbsp; ${JSON.parse(this.responseText).details}</div>
-
                             <div class="col-md-4"><input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row"></div>
                         </div>`
 
