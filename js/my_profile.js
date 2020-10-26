@@ -298,6 +298,41 @@ function addEducation(){
     }
 }
 
+
+function getSkill()
+{
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/skill/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send();
+
+    xh.onload = function(){
+        console.log(this.responseText);
+    }
+}
+
+function addSkill()
+{
+    var data={
+        
+            "skill" : document.getElementById('skill').value
+    }
+
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("POST", "https://achieve-vit.herokuapp.com/portfolio/skill/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send(JSON.stringify(data));
+
+    xh.onload=function(){
+        console.log(this.responseText);
+    }
+}
 function logout(){
     localStorage.removeItem("Token");
     window.location.replace('index.html')
