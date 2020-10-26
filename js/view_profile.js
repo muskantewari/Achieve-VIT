@@ -133,6 +133,11 @@ function getEducation(){
 
 }
 
+function logout(){
+    localStorage.removeItem("Token");
+    window.location.replace('index.html')
+}
+
 function getExperience(){
     var jwt = localStorage.getItem('Token')
     var viewEmp = localStorage.getItem('viewEmp')
