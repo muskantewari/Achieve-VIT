@@ -1,6 +1,8 @@
-function initRequests(){
+function initRequests(){  
 
     if (localStorage.hasOwnProperty("Token")){
+
+        $('#searchTable').hide()
         var empid = localStorage.getItem('EmpID')
         var acType = localStorage.getItem("ACtype")
         var initNode = `<button class="dropbtn" id="AVIT">${empid} (${acType})
@@ -153,4 +155,6 @@ function addLike(uuid){
         }
     }
 }
+
+
 

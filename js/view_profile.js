@@ -1,6 +1,7 @@
 function allRequests(){
 
     if (localStorage.hasOwnProperty("Token")){
+        $('#searchTable').hide()
 
         var empid = localStorage.getItem('EmpID')
         var acType = localStorage.getItem("ACtype")

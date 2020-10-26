@@ -1,6 +1,8 @@
 function allGETRequests(){
 
     if (localStorage.hasOwnProperty("Token")){
+        $('#searchTable').hide()
+
         var empid = localStorage.getItem('EmpID')
         var acType = localStorage.getItem("ACtype")
         var initNode = `<button class="dropbtn" id="AVIT">${empid} (${acType})
