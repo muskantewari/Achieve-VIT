@@ -72,6 +72,7 @@ function myFeed(){
                 var name = post["Name"]
                 var title = post["Title"]
                 var likes = post["Likes"]
+                var empID = post["empID"]
                 var content = ""
                 if (title == " added a Skill")
                 {
@@ -101,7 +102,7 @@ function myFeed(){
                                         <img src="img/Ellipse 5.png" width="40px">
                                     </div>
                                     <div class="col-11 mt-2">
-                                        <span style="font-size: larger;"><span style="font-weight: bolder;">${name}</span></span><i> &nbsp; &nbsp; ${title}</i>
+                                        <span style="font-size: larger;"><span style="font-weight: bolder; cursor:pointer" id = ${empID} onclick = "viewProfile(this.id)">${name}</span></span><i> &nbsp; &nbsp; ${title}</i>
                                     </div>
                                 </div>
                                 <div class="row announce mt-3">
@@ -121,6 +122,11 @@ function myFeed(){
         }
         
     }
+}
+
+function viewProfile(id){
+    window.location.replace('view_employee.html')
+    localStorage.setItem('viewEmp', id)
 }
 
 function addLike(uuid){
