@@ -43,9 +43,9 @@ function viewDetails()
 
             var node = `<div class="mt-2 mb-1">
             <span style="font-weight: bolder;">${name}</span><br>
+            ${school}<br>
             ${email}<br>
             ${post}<br>                
-            ${school}<br>
             Employee ID : ${empid}<br>
             Vellore Institute of Technology
             </div>`
@@ -156,7 +156,7 @@ function getExperience(){
 
                 var node = `<div class="row mt-3" id = "${uuid}">
                                 <div class="col-md-8">
-                                    &nbsp;${position}<br>
+                                    &nbsp;<b>${position}</b><br>
                                     &nbsp;${comp_name}<br>
                                     &nbsp;${description}<br>
                                     &nbsp;${period}
