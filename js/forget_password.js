@@ -18,34 +18,30 @@ function forget_password(){
   
 
   xhr.setRequestHeader("Content-Type", "application/json");
-
-  //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-		xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
-		xhr.setRequestHeader("Access-Control-Max-Age", "1800");
-		//xhr.setRequestHeader("Access-Control-Allow-Headers", "content-type");
-    xhr.setRequestHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
-    
-    xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-		// res.setHeader("Content-Type", "application/json;charset=utf-8"); // Opening this comment will cause problems
+  xhr.setRequestHeader("Access-Control-Allow-Credentials", "true");
+  xhr.setRequestHeader("Access-Control-Max-Age", "1800");
+  xhr.setRequestHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
   
+  xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+
 
   xhr.send(JSON.stringify(data))
 
   xhr.onload = function () {
       console.log(this.responseText)
       console.log(this.status)
-      // debugger;
+
       if(this.status!=202)
       {
           alert("Re-enter your email")
       }
-      else{
-        
+      else
+      {
+        $('#send-reset-link').modal('hide');
       }
   }
 
 }
-//var data = JSON.stringify({"email":"shreyachatterjeeshreyash@gmail.com"});
 
 function new_password(){
 
@@ -78,7 +74,7 @@ xhr.send(JSON.stringify(data));
 xhr.onload = function () {
   console.log(this.responseText)
   console.log(this.status)
-  // debugger;
+
   if(this.status==200)
   {
     window.location.replace('homepage_emp.html')
