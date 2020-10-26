@@ -24,7 +24,6 @@ function forget_password(){
   
   xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 
-
   xhr.send(JSON.stringify(data))
 
   xhr.onload = function () {
@@ -49,7 +48,6 @@ function new_password(){
     "email":document.getElementById('email_forgot_password').value,
     "otp":document.getElementById('otp').value,
     "password":document.getElementById('new-password').value
-
 }
 
 var xhr = new XMLHttpRequest();

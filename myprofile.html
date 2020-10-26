@@ -214,8 +214,13 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
+
+
   <!-- Modal-5 delete-row-->
+
+
+
 <div class="modal fade" id="delete-row" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -228,19 +233,19 @@
         <div class="modal-footer foot_mod">
             <div class="row">
                 <div class="col-6">
-                    <button type="button" class="YES"> YES
+                    <button type="button" class="YES" onClick = "Delete()"> YES
                     </button>
                 </div>
                 <div class="col-6">
-                    <button type="button" class="NO"> NO
+                    <button type="button" class="NO" 
+                    onClick = 'hideModal(this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.id)'> NO
                     </button>
                 </div>
             </div>
-          
         </div>
       </div>
     </div>
-  </div>
+</div>
     <footer id="sticky-footer" class="py-3 px-4" style="margin-top: 75px;">
         <div class="row">
             <div class="mr-auto" >

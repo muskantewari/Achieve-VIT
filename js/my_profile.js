@@ -44,7 +44,10 @@ function getAchievements(){
 
                         <div class = "col-md-6 ml-5">${details}</div>
 
-                        <div class="col-md-4"><input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row"></div>
+                        <div class="col-md-4">
+                            <input type="image" style="float: right; width: 50px; height: 50px;"
+                            src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row" onClick = "storeID(this.parentNode.parentNode.id, 'Achievements')">
+                        </div>
                     </div>`
 
                 $('#achievement').append(node);
@@ -185,7 +188,11 @@ function addAchievements()
 
             var node = `<div class="row mt-3" id = "${JSON.parse(this.responseText).uuid}">
                             <div class = "col-md-6 ml-5">&nbsp; ${JSON.parse(this.responseText).details}</div>
-                            <div class="col-md-4"><input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row"></div>
+                            <div class="col-md-4"><input type="image" style="float: right; width: 50px; 
+                            height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" 
+                            data-target="#delete-row" 
+                            onClick = "storeID(this.parentNode.parentNode.id, 'Achievements')">
+                            </div>
                         </div>`
 
             $('#achievement').append(node);
@@ -290,9 +297,51 @@ function addEducation(){
         }
     }
 }
+
 function logout(){
     localStorage.removeItem("Token");
     window.location.replace('index.html')
 }
 
+function storeID(id, type){
+    localStorage.setItem("deleteID", id);
+    localStorage.setItem("type", type)
+}
 
+function Delete(){
+    var type = localStorage.getItem('type');
+    var id = localStorage.getItem('deleteID');
+
+    if (type == 'Achievements')
+        deleteAchievements(id)
+    
+}
+
+function deleteAchievements(id){
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("DELETE", `https://achieve-vit.herokuapp.com/portfolio/achievements/${id}/`, true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send(); 
+
+    xh.onload = function(){
+        if (this.status == 204){
+            $('#delete-row').modal('hide');
+            var uuid = '#' + id;
+            $(uuid).hide();
+            localStorage.removeItem("deleteID");
+            localStorage.removeItem("type");
+        }
+
+        else{
+            alert('Unable to delete, try again!')
+        }
+    }
+}
+
+function hideModal(id){
+    var uuid = '#' + id;
+    $(uuid).modal('hide');
+}
