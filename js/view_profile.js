@@ -10,7 +10,7 @@ function allRequests(){
 
         $('#dropdown').append(initNode);
         viewDetails()
-        // getEducation()
+        getEducation()
         getAchievements()
         getExperience()
         // getSkill()
@@ -92,9 +92,10 @@ function getAchievements(){
 
 function getEducation(){
     var jwt = localStorage.getItem('Token')
+    var viewEmp = localStorage.getItem('viewEmp')
 
     var xh = new XMLHttpRequest();
-    xh.open("GET", `https://achieve-vit.herokuapp.com/portfolio/viewEducation?empid=`, true)
+    xh.open("GET", `https://achieve-vit.herokuapp.com/portfolio/viewEducation?empid=${viewEmp}`, true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
@@ -155,7 +156,7 @@ function getExperience(){
 
                 var node = `<div class="row mt-3" id = "${uuid}">
                                 <div class="col-md-8">
-                                    &nbsp;${position}<br>
+                                    &nbsp;<b>${position}</b><br>
                                     &nbsp;${comp_name}<br>
                                     &nbsp;${description}<br>
                                     &nbsp;${period}
@@ -172,6 +173,7 @@ function getExperience(){
 function getSkill()
 {
     var jwt = localStorage.getItem('Token')
+    var viewEmp = localStorage.getItem('viewEmp')
 
     var xh = new XMLHttpRequest();
     xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/skill/", true)
@@ -197,6 +199,7 @@ function getSkill()
 
     }
 }
+
 
 
 
