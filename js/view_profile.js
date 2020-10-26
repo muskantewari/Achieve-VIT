@@ -43,9 +43,9 @@ function viewDetails()
 
             var node = `<div class="mt-2 mb-1">
             <span style="font-weight: bolder;">${name}</span><br>
+            ${school}<br>
             ${email}<br>
             ${post}<br>                
-            ${school}<br>
             Employee ID : ${empid}<br>
             Vellore Institute of Technology
             </div>`
