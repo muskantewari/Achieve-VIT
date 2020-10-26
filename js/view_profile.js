@@ -13,7 +13,7 @@ function allRequests(){
         getEducation()
         getAchievements()
         getExperience()
-        // getSkill()
+        getSkill()
     }
     else{
         alert("You need to login first")
@@ -176,7 +176,7 @@ function getSkill()
     var viewEmp = localStorage.getItem('viewEmp')
 
     var xh = new XMLHttpRequest();
-    xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/skill/", true)
+    xh.open("GET", `https://achieve-vit.herokuapp.com/portfolio/viewSkills?empid=${viewEmp}`, true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
@@ -199,6 +199,7 @@ function getSkill()
 
     }
 }
+
 
 
 
