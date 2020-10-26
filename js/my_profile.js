@@ -12,6 +12,7 @@ function allGETRequests(){
         getEducation()
         getAchievements()
         getExperience()
+        getSkill()
     }
     else{
         alert("You need to login first")
@@ -136,6 +137,35 @@ function getExperience(){
             }
 
         }
+    }
+}
+
+function getSkill()
+{
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/skill/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send();
+
+    xh.onload = function(){
+        console.log(this.responseText);
+        if(this.status==200 && (this.responseText).length>5){
+            var resp = eval('(' + this.responseText + ')');
+
+            for (let data in resp){
+                var uuid = resp[data]["uuid"]
+                var skill = resp[data]["skill"]
+                var node = `<div class="skill col-12 col-md-3 ml-4" ${uuid}>
+                    ${skill}
+                </div>`
+
+                $('#skill').append(node);
+            }
+        }
+
     }
 }
 
@@ -298,27 +328,10 @@ function addEducation(){
     }
 }
 
-
-function getSkill()
-{
-    var jwt = localStorage.getItem('Token')
-
-    var xh = new XMLHttpRequest();
-    xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/skill/", true)
-    xh.setRequestHeader('Content-Type', 'application/json')
-    xh.setRequestHeader('Authorization', jwt);
-    xh.send();
-
-    xh.onload = function(){
-        console.log(this.responseText);
-    }
-}
-
 function addSkill()
 {
     var data={
-        
-            "skill" : document.getElementById('skill').value
+        "skill" : document.getElementById('my_skill').value
     }
 
     var jwt = localStorage.getItem('Token')
@@ -330,7 +343,20 @@ function addSkill()
     xh.send(JSON.stringify(data));
 
     xh.onload=function(){
-        console.log(this.responseText);
+        if (this.status == 201)
+        {
+            var node = `<div class="skill col-12 col-md-3 ml-4" ${JSON.parse(this.responseText).uuid}>
+                    ${JSON.parse(this.responseText).skill}
+                </div>`
+
+            $('#skill').append(node);
+            $('#add-skill').modal('hide');
+        }
+
+        else{
+            alert('Error in adding skill')
+        }
+
     }
 }
 function logout(){
