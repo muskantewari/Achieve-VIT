@@ -151,7 +151,6 @@ function getSkill()
     xh.send();
 
     xh.onload = function(){
-        console.log(this.responseText);
         if(this.status==200 && (this.responseText).length>5){
             var resp = eval('(' + this.responseText + ')');
 
@@ -300,8 +299,6 @@ function addEducation(){
     xh.send(JSON.stringify(data)); 
 
     xh.onload=function(){
-        console.log(this.status)
-        console.log(this.responseText)
         if(this.status==201)
         {
             var node = `<div class="row mt-3" id = "${JSON.parse(this.responseText).uuid}">

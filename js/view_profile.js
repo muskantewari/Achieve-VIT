@@ -94,7 +94,7 @@ function getEducation(){
     var jwt = localStorage.getItem('Token')
 
     var xh = new XMLHttpRequest();
-    xh.open("GET", "https://achieve-vit.herokuapp.com/portfolio/education/", true)
+    xh.open("GET", `https://achieve-vit.herokuapp.com/portfolio/viewEducation?empid=`, true)
     xh.setRequestHeader('Content-Type', 'application/json')
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
@@ -197,5 +197,7 @@ function getSkill()
 
     }
 }
+
+
 
 
