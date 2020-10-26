@@ -88,7 +88,7 @@ function getEducation(){
                     &nbsp;${start} to ${end}
                 </div>
                 <div class="col-md-4">
-                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row" onClick = "storeID(this.parentNode.parentNode.id, 'Achievements')">
+                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row" onClick = "storeID(this.parentNode.parentNode.id, 'Education')">
                 </div>
                 </div>`
                 $('#education').append(node);
@@ -129,7 +129,7 @@ function getExperience(){
                                     &nbsp;${period}
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
+                                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row" data-toggle="modal" data-target="#delete-row" onClick = "storeID(this.parentNode.parentNode.id, 'Experience')">
                                 </div>
                             </div>`
 
@@ -374,6 +374,8 @@ function Delete(){
         deleteAchievements(id)
     else if(type=='Education')
         deleteEducation(id)
+    else if(type=='Experience')
+        deleteExperience(id)
 }
 
 function deleteAchievements(id){
@@ -428,4 +430,29 @@ function deleteEducation(id)
             alert('Unable to delete, try again!')
         }
     }
+}
+
+function deleteExperience(id)
+{
+    var jwt = localStorage.getItem('Token')
+
+    var xh = new XMLHttpRequest();
+    xh.open("DELETE", `https://achieve-vit.herokuapp.com/portfolio/experience/${id}/`, true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send(); 
+
+    xh.onload = function(){
+        if (this.status == 204){
+            $('#delete-row').modal('hide');
+            var uuid = '#' + id;
+            $(uuid).hide();
+            localStorage.removeItem("deleteID");
+            localStorage.removeItem("type");
+        }
+
+        else{
+            alert('Unable to delete, try again!')
+        }
+    }  
 }
