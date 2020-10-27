@@ -17,8 +17,8 @@ function allRequests(){
         getSkill()
     }
     else{
-        alert("You need to login first")
         window.location.replace('index.html')
+        alert("You need to login first")
     }
 }
 
@@ -185,7 +185,6 @@ function getSkill()
     xh.send();
 
     xh.onload = function(){
-        console.log(this.responseText);
         if(this.status==200 && (this.responseText).length>5){
             var resp = eval('(' + this.responseText + ')');
 

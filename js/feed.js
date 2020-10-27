@@ -143,7 +143,6 @@ function addLike(uuid){
         "uuid" : uuid
     }
 
-    console.log(data)
     var jwt = localStorage.getItem('Token')
     var xh = new XMLHttpRequest();
     xh.open("POST", "https://achieve-vit.herokuapp.com/feed/like", true)
