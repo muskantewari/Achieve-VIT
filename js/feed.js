@@ -127,8 +127,14 @@ function myFeed(){
 }
 
 function viewProfile(id){
-    window.location.replace('view_employee.html')
-    localStorage.setItem('viewEmp', id)
+    var empid = localStorage.getItem("EmpID")
+    if (id == empid)
+        window.location.replace('myprofile.html')
+    else{
+        window.location.replace('view_employee.html')
+        localStorage.setItem('viewEmp', id)
+    }
+        
 }
 
 function addLike(uuid){
