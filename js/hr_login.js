@@ -10,7 +10,7 @@ function login(){
     xh.open("POST", "https://achieve-vit.herokuapp.com/accounts/login/", true);
     xh.setRequestHeader('Content-Type', 'application/json');
     xh.send(JSON.stringify(data));
-    
+
     xh.onload = function(){
         console.log(this.responseText)
         console.log(this.status)
@@ -21,7 +21,7 @@ function login(){
             localStorage.setItem("Token", "Token " + data.token)
             localStorage.setItem("ACtype", respData.ac_type)
             localStorage.setItem("EmpID", data.empid)
-            window.location.replace('homepage_emp.html')
+            window.location.replace('homepage_hr.html')
         }
         else{
             alert('Invalid login credentials')
