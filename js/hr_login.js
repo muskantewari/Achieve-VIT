@@ -19,7 +19,7 @@ function login(){
         {
             var data = JSON.parse(this.responseText)
             localStorage.setItem("Token", "Token " + data.token)
-            localStorage.setItem("ACtype", respData.ac_type)
+            localStorage.setItem("ACtype", data.ac_type)
             localStorage.setItem("EmpID", data.empid)
             window.location.replace('homepage_hr.html')
         }
