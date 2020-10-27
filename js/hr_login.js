@@ -10,9 +10,8 @@ function login(){
     xh.open("POST", "https://achieve-vit.herokuapp.com/accounts/login/", true);
     xh.setRequestHeader('Content-Type', 'application/json');
     xh.send(JSON.stringify(data));
-    // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xh.onload = function () {
-        console.log("HIii")
+    
+    xh.onload = function(){
         console.log(this.responseText)
         console.log(this.status)
         // debugger;
@@ -20,6 +19,8 @@ function login(){
         {
             var data = JSON.parse(this.responseText)
             localStorage.setItem("Token", "Token " + data.token)
+            localStorage.setItem("ACtype", respData.ac_type)
+            localStorage.setItem("EmpID", data.empid)
             window.location.replace('homepage_emp.html')
         }
         else{
