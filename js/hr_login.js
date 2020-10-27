@@ -20,7 +20,7 @@ function login(){
         {
             var data = JSON.parse(this.responseText)
             localStorage.setItem("Token", "Token " + data.token)
-            window.location.replace('homepage_emp.html')
+            window.location.replace('homepage_hr.html')
         }
         else{
             alert('Invalid login credentials')
