@@ -17,8 +17,8 @@ function allGETRequests(){
         getSkill()
     }
     else{
-        alert("You need to login first")
         window.location.replace('index.html')
+        alert("You need to login first")
     }
    
 }
