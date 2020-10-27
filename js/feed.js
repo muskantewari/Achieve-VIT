@@ -10,7 +10,7 @@ function initRequests(){
         </button>`
 
         $('#dropdown').append(initNode);
-        myDetails()
+        seeDetails()
         myFeed()
     }
     else{
@@ -20,12 +20,53 @@ function initRequests(){
    
 }
 
+function seeDetails(){
+    var ac = localStorage.getItem("ACtype")
+    if (ac=='Faculty')
+        myFacDetails()
+
+    else
+        myHRDetails()
+}
+
 function logout(){
     localStorage.removeItem("Token");
     window.location.replace('index.html')
 }
 
-function myDetails(){
+function myHRDetails(){
+
+    var jwt = localStorage.getItem('Token')
+    var xh = new XMLHttpRequest();
+    xh.open("GET", "https://achieve-vit.herokuapp.com/profile/hr/", true)
+    xh.setRequestHeader('Content-Type', 'application/json')
+    xh.setRequestHeader('Authorization', jwt);
+    xh.send();
+    xh.onload = function() {
+        if(this.status==200 && (this.responseText).length>2)
+        {
+            var resp = eval('(' + this.responseText + ')');
+
+            for (let data in resp)
+            {
+                var name = resp[data]["name"]
+                var post = resp[data]["post"]
+
+
+                var node = `<div class="col-7 ml-2 mt-1" style="color: white;">
+                <span style="font-weight: bolder;">${name}</span><br>
+                ${post}<br>
+                Vellore Institute of Technology
+                </div>`
+                
+                $('#myDetails').append(node);
+            }
+
+        }
+    }
+}
+
+function myFacDetails(){
     var jwt = localStorage.getItem('Token')
     var xh = new XMLHttpRequest();
     xh.open("GET", "https://achieve-vit.herokuapp.com/profile/faculty/", true)
