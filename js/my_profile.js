@@ -186,10 +186,16 @@ function myDetails(){
             {
                 var name = resp[data]["name"]
                 var post = resp[data]["post"]
+                var email = resp[data]["email"]
+                var empid = resp[data]["empid"]
+                var school = resp[data]["school"]
 
                 var node = `<div class="mt-2 mb-1">
                 <span style="font-weight: bolder;">${name}</span><br>
+                ${school}<br>
+                ${email}<br>
                 ${post}<br> 
+                Employee ID : ${empid}<br>
                 Vellore Institute Of Technology
                 </div>`
                 
