@@ -120,9 +120,6 @@ function getEducation(){
                     &nbsp;${degree}<br>
                     &nbsp;${start} to ${end}
                 </div>
-                <div class="col-md-4">
-                    <input type="image" style="float: right; width: 50px; height: 50px;" src="img/icons8-delete-bin-64.png" data-toggle="modal" data-target="#delete-row">
-                </div>
                 </div>`
                 $('#education').append(node);
             }
