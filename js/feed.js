@@ -129,6 +129,7 @@ function myFeed(){
 function viewProfile(id){
     var empid = localStorage.getItem("EmpID")
     if (id == empid)
+    
         window.location.replace('myprofile.html')
     else{
         window.location.replace('view_employee.html')
