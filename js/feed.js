@@ -43,6 +43,7 @@ function myHRDetails(){
     xh.setRequestHeader('Authorization', jwt);
     xh.send();
     xh.onload = function() {
+        console.log(this.responseText)
         if(this.status==200 && (this.responseText).length>2)
         {
             var resp = eval('(' + this.responseText + ')');
@@ -51,11 +52,12 @@ function myHRDetails(){
             {
                 var name = resp[data]["name"]
                 var post = resp[data]["post"]
-
+                var email = resp[data]["email"]
 
                 var node = `<div class="col-7 ml-2 mt-1" style="color: white;">
                 <span style="font-weight: bolder;">${name}</span><br>
                 ${post}<br>
+                ${email}<br>
                 Vellore Institute of Technology
                 </div>`
                 
@@ -87,6 +89,7 @@ function myFacDetails(){
                 var node = `<div class="col-7 ml-2 mt-1" style="color: white;">
                 <span style="font-weight: bolder;">${name}</span><br>
                 ${post}<br>
+                
                 Vellore Institute of Technology
                 </div>`
                 
